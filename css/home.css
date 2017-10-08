@@ -1,0 +1,170 @@
+/*
+Background Image
+ */
+body {
+    background-image: url("../images/blurred1.jpg");
+}
+
+/*
+center Login box properties
+ */
+.centreLogInBox {
+    background-color: white;
+    box-shadow: 20px 15px 15px 0px #004080;
+    border-radius: 2%;
+    opacity: 0.7;
+}
+
+/*
+border glow on hover for button
+ */
+.borderGlow:hover {
+    border-color: #004080 !important;;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08) inset, 0 0 18px #004080 !important;
+    outline: 0 none !important;
+
+}
+
+/*
+ to put border glows for all input
+ */
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+    border-color: #004080;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08) inset, 0 0 18px #004080;
+    outline: 0 none;
+}
+
+
+/*
+To keep the login box in center
+ */
+.Absolute-Center {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/*
+To make the login box in center responsive
+ */
+.Absolute-Center.is-Responsive {
+    width: 50%;
+    height: 50%;
+    min-width: 200px;
+    max-width: 400px;
+    min-height: 320px;
+    max-height: 320px;
+    padding: 40px;
+}
+
+.contrast-blue-textShade {
+    color: #004080 !important;
+}
+
+.contrast-blue-backgroundShade {
+    background-color: #004080 !important;
+}
+
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.tooltip.right {
+    padding: 0 6px;
+    margin-left: 40px;
+}
+
+.passwordValidationRectangleProps {
+    width: 460px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    margin-top: -175px;
+    margin-left: 335px;
+    opacity: 0.7;
+}
+
+.passwordValidationRectangleListNoBulletsProps {
+    padding-top: 7px;
+    border: 0;
+    list-style-type: none;
+}
+
+.glyphicon-remove-sign {
+    color: red;
+}
+
+.glyphicon-ok-sign {
+    color: green;
+}
+
+.passwordValidationRectangleArrowProps {
+    border: solid 10px transparent;
+    border-right-color: black;
+    position: absolute;
+    margin: -60px 0 0 -20px;
+}
+
+.passwordConfirmationRectangleProps {
+    width: 230px;
+    height: 35px;
+    background-color: black;
+    color: white;
+    margin-top: -87px;
+    margin-left: 335px;
+    opacity: 0.7;
+}
+
+.passwordConfirmationRectangleNoBulletsProps {
+    padding-top: 7px;
+    border: 0;
+    list-style-type: none;
+}
+
+.passwordValiationRectangleArrowProps {
+    border: solid 10px transparent;
+    border-right-color: black;
+    position: absolute;
+    margin: -30px 0 0 -20px;
+}
+
+.emailValidRectProp {
+    width: 230px;
+    height: 35px;
+    background-color: black;
+    color: white;
+    margin-top: -195px;
+    margin-left: 335px;
+    opacity: 0.7;
+}
+
+.emailValidRectangleNoBulletsProps {
+    padding-top: 7px;
+    border: 0;
+    list-style-type: none;
+}
+
+.emailValidRectangleArrowProps {
+    border: solid 10px transparent;
+    border-right-color: black;
+    position: absolute;
+    margin: -31px 0 0 -20px;
+}

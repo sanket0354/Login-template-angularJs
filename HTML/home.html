@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
+
+
+    <!-- User Defined Stylesheets and scripts -->
+    <link rel="stylesheet" type="text/css" href="../css/home.css">
+    <script src="../javascript/angular/home/app/home.app.js"></script>
+    <script src="../javascript/angular/home/controllers/home.loginController.js"></script>
+    <script src="../javascript/angular/home/directive/home.login.passwordValidationDirective.js"></script>
+    <script src="../javascript/angular/home/directive/home.login.passwordConfirmationDirective.js"></script>
+
+
+</head>
+<body ng-app="home" ng-controller="homeLoginController">
+
+<!-- Center Login Box -->
+
+<div class="centreLogInBox Absolute-Center is-Responsive">
+
+    <ul class="nav nav-tabs">
+        <li class="active contrast-blue-textShade"><a data-toggle="tab" href="#loginTab">Login</a></li>
+        <li><a data-toggle="tab" href="#signUpTab">Sign up</a></li>
+    </ul>
+
+    <div class="tab-content margin-top-15">
+        <div id="loginTab" class="tab-pane fade in active">
+            <form name="loginForm">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="logInEmail" type="text" class="form-control" name="logInEmail" placeholder="Email"
+                           ng-model="logInEmail"
+                           required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="logInPassword" type="password" class="form-control" name="logInPassword"
+                           placeholder="Password"
+                           ng-model="logInPassword" required>
+                </div>
+                <br>
+                <button type="button" ng-model="loginButton" class="btn btn-default btn-block borderGlow">Log In
+                </button>
+            </form>
+        </div>
+
+        <div id="signUpTab" class="tab-pane fade">
+
+            <form name="signUpForm">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input ng-focus="showEmailValidationRectangle = !showEmailValidationRectangle" ng-blur="showEmailValidationRectangle = !showEmailValidationRectangle"
+                            id="signUpEmail" type="email" class="form-control" name="signUpEmail"
+                           placeholder="you@yourdomain.com"
+                           ng-model="signUpEmail"
+                           required>
+
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input ng-focus="showRectangle = !showRectangle" ng-blur="showRectangle = !showRectangle"
+                           id="signUpPassword" type="signUpPassword" class="form-control" name="signUpPassword"
+                           placeholder="Password"
+                           ng-model="signUpPassword" required password-validation-directive>
+
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input ng-focus="showPassConfirmRectangle = !showPassConfirmRectangle"
+                           ng-blur="showPassConfirmRectangle = !showPassConfirmRectangle" id="signUpConfirmPassword"
+                           type="signUpConfirmPassword" class="form-control"
+                           name="signUpConfirmPassword" placeholder="Confirm Password" ng-model="signUpconfirmPassword"
+                           required password-confirmation-directive>
+                </div>
+                <br>
+                <button type="button" ng-model="signUpButton" class="btn btn-default btn-block borderGlow">Sign me up!
+                </button>
+                <div ng-show="showEmailValidationRectangle" id="emailValidRect" class="emailValidRectProp" ng-show=!signUpForm.signUpEmail.$valid>
+                    <ul><li id="emailValidListNoBullets"
+                        class="emailValidRectangleNoBulletsProps">
+                        Enter a Valid Email
+                    </li>
+                </ul>
+                    <div id="emailValidRectangleArrow" class="emailValidRectangleArrowProps"></div>
+                </div>
+                <div id="passwordValidationRectangle" class="passwordValidationRectangleProps" ng-show="showRectangle">
+                    <ul id="passwordValidationRectangleListNoBullets"
+                        class="passwordValidationRectangleListNoBulletsProps">
+                        <li>
+                            <ng-bind-html ng-bind-html="capitalLetterCheck">
+                            </ng-bind-html>
+                            should include at least 1 Capital letter
+                        </li>
+                        <li>
+                            <ng-bind-html ng-bind-html="smallLetterCheck">
+                            </ng-bind-html>
+                            should include at least 1 Small letter
+                        </li>
+                        <li>
+                            <ng-bind-html ng-bind-html="numberCheck">
+                            </ng-bind-html>
+                            should include at least 1 Number
+                        </li>
+
+                        <li>
+                            <ng-bind-html ng-bind-html="specialLetterCheck">
+                            </ng-bind-html>
+                            should include at least 1 special character from these: !, @ or $
+                        </li>
+                    </ul>
+                    <div id="passwordValidationRectangleArrow" class="passwordValidationRectangleArrowProps"></div>
+                </div>
+
+                <!--
+                    Password Confirmation message rectangle
+                -->
+                <div id="passwordConfirmationRectangle" class="passwordConfirmationRectangleProps"
+                     ng-show="showPassConfirmRectangle">
+                    <ul id="passwordConfirmationRectangleNoBullets" class="passwordConfirmationRectangleNoBulletsProps">
+                        <li ng-show="passMatch">
+                            Click the Signup Button
+                        </li>
+                        <li ng-show="!passMatch">
+                            Passwords do not match
+                        </li>
+                    </ul>
+                    <div id="passwordValiationRectangleArrow" class="passwordValiationRectangleArrowProps"></div>
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
